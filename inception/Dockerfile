@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:6
 
 COPY inc.cnf /opt/
 
