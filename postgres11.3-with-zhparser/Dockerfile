@@ -12,7 +12,7 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
-        gcc g++ libc6-dev cmake make git wget unzip postgresql-server-dev-11 libpq-dev && rm -rf /var/lib/apt/lists/* && \
+        gcc g++ libc6-dev systemtap-sdt-dev cmake make git wget unzip postgresql-server-dev-11 libpq-dev && rm -rf /var/lib/apt/lists/* && \
         mkdir -p /usr/lib/scws/rum && \
         wget -O /usr/lib/scws/scws-${SCWS_VERSION}.tar.bz2 "http://www.xunsearch.com/scws/down/scws-${SCWS_VERSION}.tar.bz2" && \
         wget -O /usr/lib/scws/zhparser.zip "https://github.com/amutu/zhparser/archive/master.zip" && \
