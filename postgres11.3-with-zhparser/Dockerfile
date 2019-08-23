@@ -32,7 +32,7 @@ RUN cp ./pg_similarity.conf.sample /etc/postgresql/pg_similarity.conf
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 
-COPY ./initdb.sh /docker-entrypoint-initdb.d/initdb.sh
+#COPY ./initdb.sh /docker-entrypoint-initdb.d/initdb.sh
 
 
 
