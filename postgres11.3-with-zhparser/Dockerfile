@@ -10,8 +10,12 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
         echo "deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib" >>/etc/apt/sources.list && \
         echo "deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib" >>/etc/apt/sources.list
 
+RUN apt-get update && apt-get install -y postgresql-plpython-11
+
+RUN echo 'CREATE EXTENSION plpythonu;' > /docker-entrypoint-initdb.d/plpythonu.sql
 
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
+
         gcc g++ libc6-dev systemtap-sdt-dev cmake make git wget unzip postgresql-server-dev-11 libpq-dev && rm -rf /var/lib/apt/lists/* && \
         mkdir -p /usr/lib/scws/rum && \
         wget -O /usr/lib/scws/scws-${SCWS_VERSION}.tar.bz2 "http://www.xunsearch.com/scws/down/scws-${SCWS_VERSION}.tar.bz2" && \
